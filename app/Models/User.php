@@ -45,4 +45,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    //ユーザー１対タスクが複数になるのでその旨を追加
+    public function todotasks()
+    {
+        return $this->hasMany(Todotask::class);
+    }
 }

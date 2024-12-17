@@ -13,7 +13,13 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('メインページへ') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('todotasks.index')" :active="request()->routeIs('todotasks.index')">
+                        {{__("タスク一覧")}}
+                    </x-nav-link>
+                    <x-nav-link :href="route('todotasks.create')" :active="request()->routeIs('todotasks.create')">
+                        {{__("新規タスク作成")}}
                     </x-nav-link>
                 </div>
             </div>
@@ -43,7 +49,7 @@
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
+                                onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
@@ -68,8 +74,14 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                {{ __('メインページへ') }}
             </x-responsive-nav-link>
+            <x-nav-link :href="route('todotasks.index')" :active="request()->routeIs('todotasks.index')">
+                {{__("タスク一覧")}}
+            </x-nav-link>
+            <x-nav-link :href="route('todotasks.create')" :active="request()->routeIs('todotasks.create')">
+                {{__("新規タスク作成")}}
+            </x-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -89,7 +101,7 @@
                     @csrf
 
                     <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
+                        onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
